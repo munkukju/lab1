@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자재 상세</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="page page-narrow">
+        <div class="topbar">
+            <div class="brand">
+                <img class="brand-logo" src="/static/images/tossbank-logo.png" alt="tossbank">
+                <div class="brand-text">
+                    <div class="brand-title">자재관리</div>
+                    <div class="brand-subtitle">Material Management</div>
+                </div>
+            </div>
+            <div class="topbar-right">
+                <a class="top-chip" href="/material/list">목록</a>
+            </div>
+        </div>
+
+        <div class="hero">
+            <h1 class="hero-title">자재 상세</h1>
+            <p class="hero-text">자재 세부 정보를 확인합니다.</p>
+        </div>
+
+        <div class="panel">
+            <div class="summary-strip">
+                <div class="summary-card">
+                    <span class="summary-label">자재번호</span>
+                    <div class="summary-value">{{material_id}}</div>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-label">자재명</span>
+                    <div class="summary-value">{{material_name}}</div>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-label">등록일시</span>
+                    <div class="summary-value">{{created_at}}</div>
+                </div>
+            </div>
+
+            <div class="detail-wrap">
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <span class="detail-label">자재코드</span>
+                        <div class="detail-value">{{material_code}}</div>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-label">분류</span>
+                        <div class="detail-value">{{category}}</div>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-label">규격</span>
+                        <div class="detail-value">{{specification}}</div>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-label">단위</span>
+                        <div class="detail-value">{{unit}}</div>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-label">단가</span>
+                        <div class="detail-value money">{{unit_price}} 원</div>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-label">현재고</span>
+                        <div class="detail-value">{{stock_qty}}</div>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-label">안전재고</span>
+                        <div class="detail-value">{{safety_stock}}</div>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-label">공급업체</span>
+                        <div class="detail-value">{{supplier_name}}</div>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-label">창고위치</span>
+                        <div class="detail-value">{{warehouse_location}}</div>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-label">최근입고일</span>
+                        <div class="detail-value">{{inbound_date}}</div>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-label">자재상태</span>
+                        <div class="detail-value">{{material_status}}</div>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-label">담당자명</span>
+                        <div class="detail-value">{{manager_name}}</div>
+                    </div>
+
+                    <div class="detail-item full">
+                        <span class="detail-label">담당자 연락처</span>
+                        <div class="detail-value">{{manager_phone}}</div>
+                    </div>
+                </div>
+
+                <div class="note-box">
+                    <h2 class="note-title">자재 메모</h2>
+                    <div class="note-content">{{note}}</div>
+                </div>
+
+                <div class="button-row">
+                    <a class="btn-secondary flex-1" href="/material/list">목록</a>
+                    <a class="btn flex-1" href="/material/edit/{{material_id}}">수정</a>
+                    <form class="inline-form flex-1" action="/material/delete/{{material_id}}" method="post" onsubmit="return confirm('정말 삭제하시겠습니까?');">
+                        <button class="btn-danger" type="submit" style="width: 100%;">삭제</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

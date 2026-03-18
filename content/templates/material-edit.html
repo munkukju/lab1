@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자재 수정</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="page page-narrow">
+        <div class="topbar">
+            <div class="brand">
+                <img class="brand-logo" src="/static/images/tossbank-logo.png" alt="tossbank">
+                <div class="brand-text">
+                    <div class="brand-title">자재관리</div>
+                    <div class="brand-subtitle">Material Management</div>
+                </div>
+            </div>
+            <div class="topbar-right">
+                <a class="top-chip" href="/material/detail/{{material_id}}">상세</a>
+            </div>
+        </div>
+
+        <div class="hero">
+            <h1 class="hero-title">자재 수정</h1>
+            <p class="hero-text">자재 정보를 수정합니다.</p>
+        </div>
+
+        <div class="panel">
+            <div class="form-wrap">
+                <form action="/material/edit/{{material_id}}" method="post">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="material_code">자재코드</label>
+                            <input type="text" id="material_code" name="material_code" value="{{material_code}}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="material_name">자재명</label>
+                            <input type="text" id="material_name" name="material_name" value="{{material_name}}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="category">분류</label>
+                            <input type="text" id="category" name="category" value="{{category}}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="specification">규격</label>
+                            <input type="text" id="specification" name="specification" value="{{specification}}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="unit">단위</label>
+                            <input type="text" id="unit" name="unit" value="{{unit}}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="unit_price">단가</label>
+                            <input type="number" id="unit_price" name="unit_price" value="{{unit_price}}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="stock_qty">현재고</label>
+                            <input type="number" id="stock_qty" name="stock_qty" value="{{stock_qty}}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="safety_stock">안전재고</label>
+                            <input type="number" id="safety_stock" name="safety_stock" value="{{safety_stock}}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="supplier_name">공급업체</label>
+                            <input type="text" id="supplier_name" name="supplier_name" value="{{supplier_name}}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="warehouse_location">창고위치</label>
+                            <input type="text" id="warehouse_location" name="warehouse_location" value="{{warehouse_location}}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inbound_date">최근입고일</label>
+                            <input type="date" id="inbound_date" name="inbound_date" value="{{inbound_date}}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="material_status">자재상태</label>
+                            <select id="material_status" name="material_status" required>
+                                <option value="정상" {{selected_status_normal}}>정상</option>
+                                <option value="부족" {{selected_status_shortage}}>부족</option>
+                                <option value="발주중" {{selected_status_ordering}}>발주중</option>
+                                <option value="단종" {{selected_status_discontinued}}>단종</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="manager_name">담당자명</label>
+                            <input type="text" id="manager_name" name="manager_name" value="{{manager_name}}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="manager_phone">담당자 연락처</label>
+                            <input type="text" id="manager_phone" name="manager_phone" value="{{manager_phone}}" required>
+                        </div>
+
+                        <div class="form-group full">
+                            <label for="note">자재 메모</label>
+                            <textarea id="note" name="note" required>{{note}}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="button-row">
+                        <button class="btn flex-1" type="submit">수정 완료</button>
+                        <a class="btn-secondary flex-1" href="/material/detail/{{material_id}}">취소</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
